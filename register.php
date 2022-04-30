@@ -48,7 +48,8 @@
     <link rel="stylesheet" href="styles/register.css">
     <link rel="stylesheet" href="styles/inc.css">
     <script src="js/register.js" defer></script>
-    <title>Coder | Register</title>
+    <script src="https://kit.fontawesome.com/a1f1e2f8b3.js" crossorigin="anonymous"></script>
+    <title>CHATTER | Register</title>
 </head>
 
 <body>
@@ -106,7 +107,6 @@
             <input name="submit" type='submit' value='Sign Up' id="submit" />
         </form>
     </div>
-    <?php include 'inc/footer.php' ?>
 </body>
 
 </html>

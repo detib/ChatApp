@@ -1,0 +1,124 @@
+/*---------- These styles are used for the register or the sign up page ----------*/
+.signup-box {
+  padding: 30px 25px 100px 25px;
+  width: 800px;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.form-title {
+  margin-bottom: 30px;
+}
+
+.form-title h6 {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 2;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column; /* Makes the content of the sign up form appear one after the other vertically */
+}
+
+.two-item-field {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* sets whether flex items are forced onto one line or can wrap onto multiple lines, which in this case it is allowed */
+  gap: 25px;
+}
+
+.two-item-field .form-field {
+  flex: 1;
+}
+
+.signup-form > * + * { /* the > selector is used to select elements where the parent is the .login-form class, while the * + * selectors are used to select the first element that comes after the first child element of the parent .login-form */
+  margin-top: 15px;
+}
+
+.form-field > * + * {
+  margin-top: 10px;
+}
+
+.form-field label {
+  font-size: 17px;
+}
+
+.form-field .signup-input-field {
+  border: 1px solid rgba(188, 188, 188, 0.5);
+  border-radius: 100vh;
+  gap: 10px;
+  padding: 0.75em 1.5em;
+}
+
+.form-field .signup-input-field input {
+  flex: 1 1;
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+.form-field .signup-input-field:focus-within {
+  outline: 2px solid #0a2754;
+}
+
+.signup-form input[type='submit'] { /* instead of using classes or id, we access inputs by specifying their types */
+  cursor: pointer;
+  outline: none;
+  border: none;
+  padding: 1em 0;
+  border-radius: 100vh;
+  background: #134897;
+  color: #fff;
+  font-size: 16px;
+  transition: 1.25s;
+}
+
+/* the box-shadow property is used to create the hover effect of the sign up button, 
+positive value goes left to right, while negative goes right to left */
+.signup-form input[type='submit']:hover {
+  box-shadow: inset 800px 0 0 0 rgba(0, 0, 0, 0.1), inset -800px 0 0 0 rgba(0, 0, 0, 0.1);
+}
+
+/* below is the style of the sign up button when it is disabled */
+.signup-form input[type='submit'][disabled] {
+  pointer-events: none;
+  outline: none;
+  border: none;
+  padding: 1em 0;
+  border-radius: 100vh;
+  background: #172856;
+  color: #fff;
+  font-size: 16px;
+  transition: 1.25s;
+}
+
+#register-error-box {
+  display: none;
+  margin-top: 15px;
+  padding: 1em 2em;
+  border-radius: 15px;
+  width: fit-content;
+  background: #e4360f;
+  color: #fff;
+  animation: shake .5s;
+}
+
+
+@keyframes shake {
+  0% {
+    transform: translateX(5px);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

@@ -1,0 +1,282 @@
+/*---------- Here we imported fonts that are used on the pages ----------*/
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #1c1c1c;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/*---------- Navigation Bar ----------
+  The style for the navigation bar below are used for the four main pages: index.php, login.php, regiter.php, and single-post.php
+  Display flex is used to position the navbar elements easier as it positions them in rows, and with the help of justify-content 
+  it becomes somewhat responsive as it automatically gives a space between the elements based on the screens size */
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  min-height: 2em;
+  background-color: #f8f8f8;
+  padding: 0 3em;
+}
+
+.nav-brand {
+  font-size: 3em;
+  padding: 0.4em 0;
+}
+
+/* The background-image, size, clip and animation are all used to create a animation of colors moving from left to right 
+when the user hovers over the brand name. The animation will keep playing as long as the user is hovered over the text */
+.nav-brand i {
+  font-size: 0.8em;
+  background-image: linear-gradient(to right, #0a2754, #104eaa, #2574ec);
+  background-size: 200% 200%;
+  animation: colors 2s ease-in-out infinite;
+  background-clip: text;
+  -webkit-background-clip:text;
+  position: relative;
+  top: -5px;
+}
+
+.nav-brand a {
+  font-family: 'Fjalla One', sans-serif;
+  background-image: linear-gradient(to right, #173f7b, #245eb7, #438eff);
+  background-size: 200% 200%;
+  animation: colors 2s ease-in-out infinite;
+  background-clip: text;
+  -webkit-background-clip:text;
+  transition: color .2s ease-in-out;
+}
+
+/* when hovered above the title CODER, the opacity will become 0 and the colors together with the animation that takes
+place will be displayed for as long as the user stays hovered above the title */
+.nav-brand a:hover, .nav-brand i:hover {
+  color:rgba(0,0,0,0);
+}
+
+@keyframes colors { 
+  0% {
+    background-position:left
+  }
+  50% {
+    background-position:right
+  }
+  100% {
+    background-position:left
+  }
+}
+
+/* the nav-items serves as a sort of wrapper to make the postioning of the nav elements easier, while the nav-link
+refers to the separate links of the nav-bar such as HOME, LOGIN, or REGISTER */
+.nav-items {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  font-size: 1.1em;
+  margin: 1.5em 0;
+  padding: 0.7em 0;
+  position: relative;
+}
+
+/* For the nav-links to be animated so that when the user hovers over them they get filled from bottom
+ to top with the color blue, we use box-shadow: inset as it is easy ot determine the direction where 
+ the color will be filled */
+.nav-link a {
+  box-shadow: inset 0 0 0 0 #1357bc;
+  display: inline;
+  margin: 1.5em 0;
+  padding: 1em 0.9em;
+  letter-spacing: 1px;
+  transition: .3s ease-in-out;
+}
+
+/* As mentioned above we give a value based on what direction we want the color to be filled. Since we 
+agreed that it'll be from bottom to top, we give a negative value to the top short hand position in the box-shadow.
+If it were positive, the hover effect would be from top to bottom */
+.nav-link a:hover {
+  color: #fff;
+  box-shadow: inset 0 -60px 0 0 #1357bc;
+}
+
+/* the user class refers to the username and profile picture section of the navbar, which is visible only
+once a user os logged in using an approved account */
+.user {
+  padding: 1.6em 0;
+  display: flex;
+  position: relative;
+}
+
+.user a {
+  margin: 0.9em 0;
+  letter-spacing: 1px;
+}
+
+.profile-pic img {
+  margin-left: 1em;
+  width: 2.8em;
+  height: 2.8em;
+  border-radius: 100%; /* Make image a circle */
+}
+
+
+/* this is the sign out dropdown that appears when the user hovers over the username or the image of the user */
+.user-dropdown {
+  position: absolute;
+  inset: 100% 0 0 0;
+  height: fit-content;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  z-index: 2; /* the z-index makes the element appear above any other elements that could've otherwise been above the dropdown */
+  background-color: #f8f8f8;
+  color: #1c1c1c;
+  box-shadow: 2px 2px 5px #ddd;
+  display: none; /* its display is initially none, however when the user hover above the username or the image, the sign out button will be displayed */
+}
+
+/* this makes the sign out button be visible when user hovers over username or image */
+.user:hover .user-dropdown {
+  display: flex;
+}
+
+.user-dropdown a {
+  box-shadow: inset 0 0 0 0 #1357bc;
+  margin: 0;
+  padding: 1em 0;
+  transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+.user-dropdown a:hover {
+  color: #fff;
+  box-shadow: inset 0 -60px 0 0 #1357bc;
+}
+
+/* below is the css of the links that are used only so that the main nav links are centered in the navbar. 
+we went with this method as it enabled an easier way of making the main nav links that are HOME, LOGIN, REGISTER and DASHBOARD
+stay in the middle of the navbar */
+.nav-signedout {
+  visibility: hidden;
+  margin-right: -1em;
+}
+
+/* @media enabled us to 'remove' the hidden links as when the page is shrinked below 1000px the display of the deactivated links above becomes none, 
+making the main links move to the left of the navbar through the flex display of the main nav selector */
+@media only screen and (max-width: 1000px) {
+.nav-signedout {
+  display: none;
+}
+}
+
+/*---------- Footer ----------*/
+footer {
+  background-color: #0a2754;
+  margin-top: 50px;
+}
+
+/* the same principle used as with the style of the navigation bar above */
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 3em 2em 3em;
+  color: #f0f0f0;
+}
+
+.footer h2 {
+  padding: 1em 0 .5em 0;
+}
+
+.footer p {
+  padding: 0 0 1em 0;
+}
+
+.footer div {
+  width: 270px;
+}
+
+/* makes the text written in the about us section wrap */
+.about-us-foot div {
+  overflow-wrap: break-word;
+}
+
+.newsletter-button {
+  background: none;
+  outline: none;
+  border: none;
+  width: 28px;
+  height: 28px;
+}
+
+.news-input input {
+  padding: .7em .7em;
+  margin-top: .1em;
+  border: none;
+  background-color: #081f43;
+  color: #f0f0f0;
+}
+
+.news-input span {
+  background-color: #f0f0f0;
+  color: #1c1c1c;
+  padding: .5em .7em;
+  cursor: pointer; /* when hovered, the cursor becomes a pointer cursor similar to when you hover over a button */
+  transition: .3s;
+}
+
+.news-input span:hover {
+  background-color: #bdd6ff;
+}
+
+.social {
+  padding: 0 0;
+}
+
+.social i {
+  color: #f0f0f0;
+  height: 0.5em;
+  padding-top: 0.5em;
+  margin: 0 0.1em;
+}
+
+.social .fa-facebook-square:hover {
+  color: #4267b2;
+}
+
+/* the properties below give instagram logo the actual colors of the logo when the user hovers over them */
+.social .fa-instagram:hover {
+  background-color: #f09433; 
+  background-color: #d6249f;
+  background-color: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.social .fa-linkedin:hover {
+  color: #0a66c2;
+}
+
+.social .fa-youtube:hover {
+  color: #ff0000;
+}
+
+.copyright {
+  padding: 1.5em 0 .5em 0;
+  color: #fff;
+  text-align: center;
+  font-weight: 700;
+}

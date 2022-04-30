@@ -1,0 +1,121 @@
+/* this css file is used to stylize the login page and its content, mostly having to do with margins, 
+paddings, widths, and font-sizes */
+.login-box {
+  padding: 10px 25px 75px 25px;
+  width: 700px;
+  max-width: 80%;
+  margin: auto;
+}
+
+.form-title {
+  margin-bottom: 30px;
+}
+
+.form-title h6 {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 2;
+  margin-bottom: 60px;
+}
+
+.login-with-another-acc {
+  width: fit-content;
+  margin-top: 30px;
+}
+
+.login-with-another-acc a {
+  border-radius: 10px;
+  background-color: #1357bc;
+  padding: 1em;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-weight: 600;
+  transition: .3s;
+}
+
+.login-with-another-acc a:hover {
+  background: #1d68da;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form > * + * { /* the > selector is used to select elements where the parent is the .login-form class, while the * + * selectors are used to select the first element that comes after the first child element of the parent .login-form */
+  margin-top: 30px;
+}
+
+.form-field > * + * {
+  margin-top: 10px;
+}
+
+.form-field label {
+  font-size: 17px;
+}
+
+.login-input-field {
+  border: 1px solid #bcbcbc80;
+  border-radius: 100vh;
+  gap: 10px;
+  padding: 0.75em 1.5em;
+}
+
+.login-input-field input {
+  flex: 1 1; /* the first value is interpreted as flex-grow value while the second value is interpreted as flex-shrink value */
+  border: none;
+  outline: none;
+  background: #ffffff00;
+  width: 100%;
+}
+
+.login-input-field:focus-within { /* focus-within is a pseudo-class that we used to create an outline around the input fields when the user focuses on them */
+  outline: 2px solid #0a2754;
+}
+
+.login-form input[type='submit'] { /* instead of using classes or id, we access inputs by specifying their types */
+  cursor: pointer;
+  outline: none;
+  border: none;
+  padding: 1em 0;
+  border-radius: 100vh;
+  background: #134897;
+  color: #fff;
+  font-size: 16px;
+  transition: 1.25s;
+}
+
+.login-form input[type='submit']:hover {
+  box-shadow: inset 800px 0 0 0 rgba(0, 0, 0, 0.1), inset -800px 0 0 0 rgba(0, 0, 0, 0.1); /* when user hovers above the button, the hover-effect that takes place is made through the box-shadow property, which is the same principle we used for the nav-links in the navigation bar */
+}
+
+/* the not-active class is used to design the pop-up message that appears when a user is not active 
+(admin has not approved the account) */
+.not-active {
+  border-radius: 10px;
+  background-color: #e4360f;
+  padding: .5em 1em;
+  animation: shake 0.75s linear forwards;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* the shake animation is self-explanatory as it gives the effect of shaking when the pop-up message appears */
+@keyframes shake {
+  0% {
+    transform: translateX(5px);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

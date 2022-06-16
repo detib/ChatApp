@@ -45,6 +45,38 @@
         <?php else: ?>
         <p>You are not logged in!</p>
         <?php endif; ?>
+        <?php if($user): foreach($result as $user): ?>
+        <div class="single-user-box">
+            <a href="chatuser.php?user=<?= $user['username']?>">
+                <div class="user-box-img">
+                    <img src="userImages/<?= $user['picture'] ?>" alt="">
+                </div>
+                <div class="user-box-info">
+                    <h4><?= $user['name'] ?> <?= $user['surname'] ?></h4>
+                    <p><?= $user['username'] ?></p>
+                </div>
+            </a>
+        </div>
+        <?php endforeach; ?>
+        <?php else: ?>
+        <p>You are not logged in!</p>
+        <?php endif; ?>
+        <?php if($user): foreach($result as $user): ?>
+        <div class="single-user-box">
+            <a href="chatuser.php?user=<?= $user['username']?>">
+                <div class="user-box-img">
+                    <img src="userImages/<?= $user['picture'] ?>" alt="">
+                </div>
+                <div class="user-box-info">
+                    <h4><?= $user['name'] ?> <?= $user['surname'] ?></h4>
+                    <p><?= $user['username'] ?></p>
+                </div>
+            </a>
+        </div>
+        <?php endforeach; ?>
+        <?php else: ?>
+        <p>You are not logged in!</p>
+        <?php endif; ?>
     </div>
 </body>
 </html>

@@ -6,6 +6,12 @@
   max-width: 90%;
 }
 
+@media (max-width: 650px) {
+  .chat-box {
+    max-width: 100%;
+  }
+}
+
 .chat-box-header {
   border-radius: inherit;
   background: #0077ff;
@@ -103,4 +109,11 @@
     cursor: pointer;
     padding: 0.5em 1em;
     border-radius: 5px;
+}
+
+@media (max-width: 600px) {
+  .text-submit {
+    padding: 0.25em .75em;
+    font-size: 14px;
+  }
 }

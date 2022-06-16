@@ -19,7 +19,11 @@
         require 'inc/navbar.php'; 
         require 'config/database.php';
         
-        $query = "SELECT name,surname,username,picture FROM users WHERE username!='$username'";
+        $query = isset($username) 
+                    ? 
+                "SELECT name,surname,username,picture FROM users WHERE username!='$username'" 
+                :
+                "SELECT name,surname,username,picture FROM users";
         $result = mysqli_query( $conn, $query );
         $result = mysqli_fetch_all( $result, MYSQLI_ASSOC );
     ?>
